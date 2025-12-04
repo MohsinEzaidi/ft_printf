@@ -3,15 +3,17 @@
 int ft_putstr(char *str)
 {
 	int count;
+	int tmp;
 
 	if(!str)
-		return write(1, "(null)", 6);
+		return (write(1, "(null)", 6));
 	count = 0;
 	while (str[count])
 	{
-		write(1, &str[count], 1);
+		tmp = write(1, &str[count], 1);
+		if (tmp < 0)
+			return (-1);
 		count++;
 	}
-	
-	return count;
+	return (count);
 }

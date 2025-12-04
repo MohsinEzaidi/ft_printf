@@ -1,21 +1,28 @@
 #include "ft_printf.h"
 #include <limits.h>
 
-int ft_idk(int i, char *str, va_list args, int count)
+int ft_idk(int i, char *str, va_list args)
 {
-		if (str[i] == 'i' || str[i] == 'd')
-		return count += ft_putnbr(va_arg(args, int));
+	int count;
+
+	count = 0;
+	if (str[i] == 'i' || str[i] == 'd')
+		count += ft_putnbr(va_arg(args, int));
 	else if (str[i] == 'u')
-		return count += ft_putunbr(va_arg(args, unsigned int));
+		count += ft_putunbr(va_arg(args, unsigned int));
 	else if (str[i] == 'x' || str[i] == 'X')
-		return count += ft_putnbrhex(va_arg(args, unsigned int), str[i]);
+		count += ft_putnbrhex(va_arg(args, unsigned int), str[i]);
 	else if (str[i] == 'p')
-		return count += ft_putadrs(va_arg(args, unsigned long int));
+		count += ft_putadrs(va_arg(args, unsigned long int));
 	else if (str[i] == 's')
-		return count += ft_putstr(va_arg(args, char*));
+		count += ft_putstr(va_arg(args, char*));
+	else if (str[i] == 'c')
+		count += ft_putchar(va_arg(args, int));
 	else if(str[i] == '%')
-		return count += write(1, "%", 1);
-	return count;
+		count += write(1, "%", 1);
+	if (count < 0)
+		return (-1);
+	return (count);
 }
 
 int ft_printf(char *str, ...)
@@ -23,6 +30,7 @@ int ft_printf(char *str, ...)
 	int i;
 	va_list args;
 	int count;
+	int tmp;
 
 	va_start(args, str);
 	i = 0;
@@ -32,18 +40,24 @@ int ft_printf(char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			ft_idk(i, str, args, count);
+			tmp = ft_idk(i, str, args);
 		}
 		else
-			count += write(1, &str[i], 1);
+			tmp = write(1, &str[i], 1);
+		if (tmp < 0)
+			return (-1);
+		count += tmp;
 		i++;
 	}
 	va_end(args);
 	return count;
 }
-int main()
-{
-	ft_printf("hello my name is %s i am %d or %i\n", "Mohsine Ezzaidi", 22, 23);
-	printf("hello my name is %s i am %d or %i\n", "Mohsine Ezzaidi", 22, 23);
-	return 0;
-}
+// int main()
+// {
+// 	char *c = "FUCK";
+// 	   printf("the count is: %d\n", printf("%d %u %c %s %s %s %p %x %X:",100961024,1950449368,'',"world",ft_printf,"hello",&c,0x4036c4d1,0x4BB39646));
+// 	printf("the count is: %d\n", ft_printf("%d %u %c %s %s %s %p %x %X:",100961024,1950449368,'',"world",ft_printf,"hello",&c,0x4036c4d1,0x4BB39646));
+// 	// printf("the count is: %d\n", ft_printf("%p\n", &c));
+// 	// ft_printf("%X\n", 0xA564B4);
+// 	return 0;
+// }

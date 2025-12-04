@@ -6,6 +6,7 @@
 # include <stdio.h>
 
 int ft_printf(char *str, ...);
+int	ft_putchar(int c);
 int ft_putnbr(int nbr);
 int ft_putunbr(unsigned int nbr);
 int ft_putnbrhex(unsigned int nbr, char type);

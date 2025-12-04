@@ -3,11 +3,14 @@ int ft_putunbr(unsigned int nbr)
 {
 	unsigned int c;
 	int count;
+	int tmp;
 
 	count = 0;
 	if(nbr > 9)
-		ft_putunbr(nbr / 10);
+		count += ft_putunbr(nbr / 10);
 	c = (nbr % 10) + '0';
-	count += write(1, &c, 1);
-	return count;
+	tmp = write(1, &c, 1);
+	if (tmp < 0)
+		return (-1);
+	return (count + tmp);
 }
