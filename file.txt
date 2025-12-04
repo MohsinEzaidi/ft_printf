@@ -1,3 +1,0 @@
-fd fucked: -1
-fd original: hello
-fd original: 19

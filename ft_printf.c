@@ -6,7 +6,7 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:44 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/04 14:29:03 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:21:32 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_check(int i, char *str, va_list args)
 	else if (str[i] == 's')
 		count += ft_putstr(va_arg(args, char *));
 	else if (str[i] == 'c')
-		count += ft_putchar(va_arg(args, short int));
+		count += ft_putchar(va_arg(args, int));
 	else if (str[i] == '%')
 		count += write(1, "%", 1);
 	else
