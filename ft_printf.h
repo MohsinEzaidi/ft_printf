@@ -6,7 +6,7 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:51 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:30:52 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:04:23 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdio.h>
 
-int	ft_printf(char *str, ...);
 int	ft_putchar(int c);
 int	ft_putnbr(int nbr);
 int	ft_putunbr(unsigned int nbr);

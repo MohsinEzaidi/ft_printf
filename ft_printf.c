@@ -6,14 +6,15 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:44 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:30:45 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:29:03 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <limits.h>
+#include <libc.h>
 
-int	ft_idk(int i, char *str, va_list args)
+int	ft_check(int i, char *str, va_list args)
 {
 	int	count;
 
@@ -29,9 +30,11 @@ int	ft_idk(int i, char *str, va_list args)
 	else if (str[i] == 's')
 		count += ft_putstr(va_arg(args, char *));
 	else if (str[i] == 'c')
-		count += ft_putchar(va_arg(args, int));
+		count += ft_putchar(va_arg(args, short int));
 	else if (str[i] == '%')
 		count += write(1, "%", 1);
+	else
+		count += write(1, str+i, 1);
 	if (count < 0)
 		return (-1);
 	return (count);
@@ -52,7 +55,7 @@ int	ft_printf(char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			tmp = ft_idk(i, str, args);
+			tmp = ft_check(i, str, args);
 		}
 		else
 			tmp = write(1, &str[i], 1);
