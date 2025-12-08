@@ -6,7 +6,7 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:44 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/04 15:21:32 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/08 07:58:15 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_check(int i, char *str, va_list args)
 	else if (str[i] == '%')
 		count += write(1, "%", 1);
 	else
-		count += write(1, str+i, 1);
+		count += write(1, str + i, 1);
 	if (count < 0)
 		return (-1);
 	return (count);
