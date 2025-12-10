@@ -6,13 +6,11 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:44 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/08 07:58:15 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:47:20 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
-#include <libc.h>
 
 int	ft_check(int i, char *str, va_list args)
 {

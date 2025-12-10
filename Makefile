@@ -2,7 +2,7 @@ AR = ar rcs
 
 CC = cc
 
-FLAGS = 
+FLAGS = -Wall -Wextra -Werror
 
 HEADER = ft_printf.h
 
