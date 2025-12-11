@@ -6,13 +6,13 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:31:56 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/04 11:31:57 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/11 06:27:23 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hex(unsigned long int n)
+int	print_hex(size_t n)
 {
 	int		count;
 	int		tmp;
@@ -30,11 +30,11 @@ int	print_hex(unsigned long int n)
 	return (tmp + count);
 }
 
-int	ft_putadrs(unsigned long int x)
+int	ft_putadrs(size_t x)
 {
-	int					count;
-	int					tmp;
-	unsigned long int	nbr;
+	int		count;
+	int		tmp;
+	size_t	nbr;
 
 	nbr = (unsigned long int)x;
 	count = write(1, "0x", 2);

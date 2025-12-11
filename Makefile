@@ -10,7 +10,7 @@ SRC = ft_printf.c ft_putadrs.c ft_putchar.c ft_putnbr.c ft_putnbrhex.c ft_putstr
 
 OBJ = $(SRC:.c=.o)
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 all: $(NAME)
 

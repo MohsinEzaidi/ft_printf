@@ -6,7 +6,7 @@
 /*   By: mezzaidi <mezzaidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:30:44 by mezzaidi          #+#    #+#             */
-/*   Updated: 2025/12/10 17:19:13 by mezzaidi         ###   ########.fr       */
+/*   Updated: 2025/12/11 06:28:03 by mezzaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check(int i, char *str, va_list args)
 	else if (str[i] == 'x' || str[i] == 'X')
 		count += ft_putnbrhex(va_arg(args, unsigned int), str[i]);
 	else if (str[i] == 'p')
-		count += ft_putadrs(va_arg(args, unsigned long int));
+		count += ft_putadrs(va_arg(args, size_t));
 	else if (str[i] == 's')
 		count += ft_putstr(va_arg(args, char *));
 	else if (str[i] == 'c')
